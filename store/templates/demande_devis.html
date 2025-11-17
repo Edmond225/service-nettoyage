@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Demande de devis</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Demande de devis</h1>
+
+    {% if success %}
+        <p style="color: green;">Votre demande a été envoyée avec succès !</p>
+    {% endif %}
+
+    <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn-envoi">Envoyer la demande</button>
+</form>
+
+</div>
+
+</body>
+</html>
